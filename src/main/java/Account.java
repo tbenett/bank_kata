@@ -15,8 +15,8 @@ class Account {
     return funds;
   }
 
-  public Account addFunds(Money eur) {
-    return Account.of(eur);
+  public Account addFunds(Money money) {
+    return Account.of(funds.add(money));
   }
 
   @Override

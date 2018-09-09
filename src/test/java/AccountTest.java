@@ -10,4 +10,11 @@ class AccountTest {
 
     assertThat(account.addFunds(Money.eur(10))).isEqualTo(Account.of(Money.eur(10)));
   }
+
+  @Test
+  void itCanAddFundsToAnInCreditAccount() {
+    Account account = Account.of(Money.eur(15));
+
+    assertThat(account.addFunds(Money.eur(10))).isEqualTo(Account.of(Money.eur(25)));
+  }
 }
