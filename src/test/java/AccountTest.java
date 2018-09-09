@@ -17,4 +17,11 @@ class AccountTest {
 
     assertThat(account.addFunds(Money.eur(10))).isEqualTo(Account.of(Money.eur(25)));
   }
+
+  @Test
+  void itCanAddFundsToAnOverdrawnAccount() {
+    Account account = Account.of(Money.eur(-15));
+
+    assertThat(account.addFunds(Money.eur(10))).isEqualTo(Account.of(Money.eur(-5)));
+  }
 }
