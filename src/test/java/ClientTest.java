@@ -10,8 +10,8 @@ class ClientTest {
     final Client client = Client.register(account);
     final Money depositAmount = Money.eur(10);
 
-    client.makeDeposit(depositAmount);
+    client.makeADeposit(depositAmount);
 
-    assertThat(account.getFunds()).isEqualTo(depositAmount);
+    assertThat(client.getAccount().getFunds()).isEqualTo(depositAmount);
   }
 }

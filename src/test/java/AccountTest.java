@@ -8,20 +8,26 @@ class AccountTest {
   void itCanAddFundsToAnEmptyAccount() {
     Account account = Account.of(Money.eur(0));
 
-    assertThat(account.addFunds(Money.eur(10))).isEqualTo(Account.of(Money.eur(10)));
+    account.addFunds(Money.eur(10));
+
+    assertThat(account.getFunds()).isEqualTo(Money.eur(10));
   }
 
   @Test
   void itCanAddFundsToAnInCreditAccount() {
-    Account account = Account.of(Money.eur(15));
+    Account account = Account.of(Money.eur(1));
 
-    assertThat(account.addFunds(Money.eur(10))).isEqualTo(Account.of(Money.eur(25)));
+    account.addFunds(Money.eur(10));
+
+    assertThat(account.getFunds()).isEqualTo(Money.eur(11));
   }
 
   @Test
   void itCanAddFundsToAnOverdrawnAccount() {
-    Account account = Account.of(Money.eur(-15));
+    Account account = Account.of(Money.eur(-1));
 
-    assertThat(account.addFunds(Money.eur(10))).isEqualTo(Account.of(Money.eur(-5)));
+    account.addFunds(Money.eur(10));
+
+    assertThat(account.getFunds()).isEqualTo(Money.eur(9));
   }
 }

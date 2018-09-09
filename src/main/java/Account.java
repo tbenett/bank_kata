@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 class Account {
-  private final Money funds;
+  private Money funds;
 
   private Account(Money eur) {
     funds = eur;
@@ -15,8 +15,8 @@ class Account {
     return funds;
   }
 
-  public Account addFunds(Money money) {
-    return Account.of(funds.add(money));
+  void addFunds(Money money) {
+    funds = funds.plus(money);
   }
 
   @Override

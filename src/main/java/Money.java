@@ -31,7 +31,7 @@ class Money {
         '}';
   }
 
-  public Money add(Money money) {
+  public Money plus(Money money) {
     return new Money(value + money.value);
   }
 }

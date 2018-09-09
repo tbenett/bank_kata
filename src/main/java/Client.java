@@ -1,5 +1,5 @@
 class Client {
-  private final Account account;
+  private Account account;
 
   private Client(Account account) {
     this.account = account;
@@ -9,7 +9,11 @@ class Client {
     return new Client(account);
   }
 
-  void makeDeposit(Money money) {
+  void makeADeposit(Money money) {
     account.addFunds(money);
+  }
+
+  Account getAccount() {
+    return account;
   }
 }
