@@ -26,4 +26,11 @@ class AccountTest {
 
     verify(operationsRepository).addDeposit(100);
   }
+
+  @Test
+  void withdraw_money_create_a_withdaw_operation() {
+    account.withdraw(100);
+
+    verify(operationsRepository).addWithdrawal(100);
+  }
 }

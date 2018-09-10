@@ -10,4 +10,8 @@ class Account {
   public void deposit(int amount) {
     operationsRepository.addDeposit(amount);
   }
+
+  public void withdraw(int amount) {
+    operationsRepository.addWithdrawal(amount);
+  }
 }
