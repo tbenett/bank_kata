@@ -33,14 +33,14 @@ class OperationsPrinterTest {
   @Test
   void invoking_print_prints_the_operations() {
     var operations = List.of(
-        new Operation(100),
-        new Operation(-58)
+        new Operation("01/01/1974", 100),
+        new Operation("01/01/1987", -58)
     );
 
     operationsPrinter.print(operations);
 
     verify(console).printLine(OperationsPrinter.HEADER);
-    verify(console).printLine("100;100");
-    verify(console).printLine("-58;42");
+    verify(console).printLine("01/01/1974;100;100");
+    verify(console).printLine("01/01/1987;-58;42");
   }
 }

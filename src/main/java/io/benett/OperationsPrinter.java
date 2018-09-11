@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class OperationsPrinter {
-  public static final String HEADER = "amount;balance";
+  public static final String HEADER = "date;amount;balance";
   private Console console;
 
   public OperationsPrinter(Console console) {
@@ -20,7 +20,9 @@ public class OperationsPrinter {
       balance += operation.amount();
 
       console.printLine(
-          String.valueOf(operation.amount())
+          operation.date()
+              + ";"
+              + String.valueOf(operation.amount())
               + ";"
               + String.valueOf(balance)
       );

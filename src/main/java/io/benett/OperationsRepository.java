@@ -6,12 +6,12 @@ import java.util.List;
 public class OperationsRepository {
   private List<Operation> operations = new ArrayList<>();
 
-  public void addDeposit(int amount) {
-    operations.add(new Operation(amount));
+  public void addDeposit(Operation deposit) {
+    operations.add(deposit);
   }
 
-  public void addWithdrawal(int amount) {
-    operations.add(new Operation(-amount));
+  public void addWithdrawal(Operation withdrawal) {
+    operations.add(withdrawal);
   }
 
   public List<Operation> allOperations() {

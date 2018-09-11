@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class AccountTest {
@@ -16,24 +17,30 @@ class AccountTest {
   private OperationsRepository operationsRepository;
   @Mock
   private OperationsPrinter operationsPrinter;
+  @Mock
+  private Clock clock;
 
   @BeforeEach
   void setUp() {
-    account = new Account(operationsRepository, operationsPrinter);
+    account = new Account(clock, operationsRepository, operationsPrinter);
   }
 
   @Test
   void deposit_money_stores_a_deposit_operation() {
+    when(clock.today()).thenReturn("01/01/1974");
+
     account.deposit(100);
 
-    verify(operationsRepository).addDeposit(100);
+    verify(operationsRepository).addDeposit(new Operation("01/01/1974", 100));
   }
 
   @Test
   void withdraw_money_stores_a_withdrawal_operation() {
+    when(clock.today()).thenReturn("01/01/1987");
+
     account.withdraw(100);
 
-    verify(operationsRepository).addWithdrawal(100);
+    verify(operationsRepository).addWithdrawal(new Operation("01/01/1987", -100));
   }
 
   @Test
