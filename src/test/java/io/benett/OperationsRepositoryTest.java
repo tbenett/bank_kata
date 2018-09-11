@@ -21,4 +21,13 @@ class OperationsRepositoryTest {
     assertThat(operationRepository.allOperations().size()).isEqualTo(1);
     assertThat(operationRepository.allOperations().get(0)).isEqualTo(new Operation(100));
   }
+
+
+  @Test
+  void add_withdrawal_stores_a_deposit_transaction() {
+    operationRepository.addWithdrawal(100);
+
+    assertThat(operationRepository.allOperations().size()).isEqualTo(1);
+    assertThat(operationRepository.allOperations().get(0)).isEqualTo(new Operation(-100));
+  }
 }
