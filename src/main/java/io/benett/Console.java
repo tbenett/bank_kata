@@ -1,7 +1,7 @@
 package io.benett;
 
-class Console {
+public class Console {
   public void printLine(String s) {
-    throw new UnsupportedOperationException();
+    System.out.println(s);
   }
 }
