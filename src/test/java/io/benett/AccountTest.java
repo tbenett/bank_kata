@@ -14,10 +14,12 @@ class AccountTest {
   private Account account;
   @Mock
   private OperationsRepository operationsRepository;
+  @Mock
+  private OperationsPrinter operationsPrinter;
 
   @BeforeEach
   void setUp() {
-    account = new Account(operationsRepository);
+    account = new Account(operationsRepository, operationsPrinter);
   }
 
   @Test
@@ -32,5 +34,15 @@ class AccountTest {
     account.withdraw(100);
 
     verify(operationsRepository).addWithdrawal(100);
+  }
+
+  @Test
+  void checking_operations_print_all_operations() {
+    account.deposit(1000);
+    account.withdraw(500);
+
+    account.checkOperations();
+
+    verify(operationsPrinter).print(operationsRepository.allOperations());
   }
 }

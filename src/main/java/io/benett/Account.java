@@ -1,10 +1,13 @@
 package io.benett;
 
-class Account {
+public class Account {
   private final OperationsRepository operationsRepository;
+  private final OperationsPrinter operationsPrinter;
 
-  public Account(OperationsRepository operationsRepository) {
+  public Account(OperationsRepository operationsRepository,
+                 OperationsPrinter operationsPrinter) {
     this.operationsRepository = operationsRepository;
+    this.operationsPrinter = operationsPrinter;
   }
 
   public void deposit(int amount) {
@@ -13,5 +16,9 @@ class Account {
 
   public void withdraw(int amount) {
     operationsRepository.addWithdrawal(amount);
+  }
+
+  public void checkOperations() {
+    operationsPrinter.print(operationsRepository.allOperations());
   }
 }
