@@ -23,14 +23,14 @@ class AccountTest {
   }
 
   @Test
-  void deposit_money_create_a_deposit_operation() {
+  void deposit_money_stores_a_deposit_operation() {
     account.deposit(100);
 
     verify(operationsRepository).addDeposit(100);
   }
 
   @Test
-  void withdraw_money_create_a_withdaw_operation() {
+  void withdraw_money_stores_a_withdrawal_operation() {
     account.withdraw(100);
 
     verify(operationsRepository).addWithdrawal(100);

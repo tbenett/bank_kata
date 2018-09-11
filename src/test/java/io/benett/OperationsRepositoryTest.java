@@ -15,7 +15,7 @@ class OperationsRepositoryTest {
   }
 
   @Test
-  void add_deposit_stores_a_deposit_transaction() {
+  void add_deposit_creates_and_stores_a_deposit_transaction() {
     operationRepository.addDeposit(100);
 
     assertThat(operationRepository.allOperations().size()).isEqualTo(1);
@@ -24,7 +24,7 @@ class OperationsRepositoryTest {
 
 
   @Test
-  void add_withdrawal_stores_a_deposit_transaction() {
+  void add_withdrawal_creates_and_stores_a_deposit_transaction() {
     operationRepository.addWithdrawal(100);
 
     assertThat(operationRepository.allOperations().size()).isEqualTo(1);
