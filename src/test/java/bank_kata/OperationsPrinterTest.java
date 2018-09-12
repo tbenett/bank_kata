@@ -1,14 +1,12 @@
 package bank_kata;
 
-import bank_kata.Console;
-import bank_kata.Operation;
-import bank_kata.OperationsPrinter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static java.util.Collections.EMPTY_LIST;
@@ -36,8 +34,8 @@ class OperationsPrinterTest {
   @Test
   void invoking_print_prints_the_operations() {
     var operations = List.of(
-        new Operation("01/01/1974", 100),
-        new Operation("01/01/1987", -58)
+        new Operation(LocalDate.of(1974, 1, 1), 100),
+        new Operation(LocalDate.of(1987, 1, 1), -58)
     );
 
     operationsPrinter.print(operations);

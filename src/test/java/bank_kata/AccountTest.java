@@ -40,11 +40,11 @@ class AccountTest {
 
   @Test
   void withdraw_money_stores_a_withdrawal_operation() {
-    when(clock.today()).thenReturn("01/01/1987");
+    when(clock.today()).thenReturn(date);
 
     account.withdraw(100);
 
-    verify(operationsStore).addWithdrawal(new Operation("01/01/1987", -100));
+    verify(operationsStore).addWithdrawal(new Operation(date, -100));
   }
 
   @Test

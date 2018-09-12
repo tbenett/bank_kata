@@ -1,12 +1,13 @@
 package bank_kata;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 class Operation {
   private final int amount;
-  private String date;
+  private LocalDate date;
 
-  public Operation(String date, int amount) {
+  public Operation(LocalDate date, int amount) {
     this.date = date;
     this.amount = amount;
   }
@@ -29,7 +30,7 @@ class Operation {
     return amount;
   }
 
-  public String date() {
+  public LocalDate date() {
     return date;
   }
 }

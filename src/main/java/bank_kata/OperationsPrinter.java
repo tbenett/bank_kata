@@ -1,5 +1,6 @@
 package bank_kata;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class OperationsPrinter {
@@ -19,7 +20,7 @@ public class OperationsPrinter {
       balance += operation.amount();
 
       console.printLine(
-          operation.date()
+          operation.date().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
               + ";"
               + String.valueOf(operation.amount())
               + ";"
