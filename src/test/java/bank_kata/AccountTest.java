@@ -1,10 +1,12 @@
-package io.benett;
+package bank_kata;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.time.LocalDate;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -14,24 +16,26 @@ class AccountTest {
 
   private Account account;
   @Mock
-  private OperationsRepository operationsRepository;
+  private OperationsStore operationsStore;
   @Mock
   private OperationsPrinter operationsPrinter;
   @Mock
   private Clock clock;
+  private LocalDate date;
 
   @BeforeEach
   void setUp() {
-    account = new Account(clock, operationsRepository, operationsPrinter);
+    account = new Account(clock, operationsStore, operationsPrinter);
+    date = LocalDate.of(1974, 1, 1);
   }
 
   @Test
   void deposit_money_stores_a_deposit_operation() {
-    when(clock.today()).thenReturn("01/01/1974");
+    when(clock.today()).thenReturn(date);
 
     account.deposit(100);
 
-    verify(operationsRepository).addDeposit(new Operation("01/01/1974", 100));
+    verify(operationsStore).addDeposit(new Operation(date, 100));
   }
 
   @Test
@@ -40,7 +44,7 @@ class AccountTest {
 
     account.withdraw(100);
 
-    verify(operationsRepository).addWithdrawal(new Operation("01/01/1987", -100));
+    verify(operationsStore).addWithdrawal(new Operation("01/01/1987", -100));
   }
 
   @Test
@@ -50,6 +54,6 @@ class AccountTest {
 
     account.checkOperations();
 
-    verify(operationsPrinter).print(operationsRepository.allOperations());
+    verify(operationsPrinter).print(operationsStore.allOperations());
   }
 }

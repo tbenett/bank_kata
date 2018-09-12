@@ -1,5 +1,8 @@
-package io.benett;
+package bank_kata;
 
+import bank_kata.Console;
+import bank_kata.Operation;
+import bank_kata.OperationsPrinter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

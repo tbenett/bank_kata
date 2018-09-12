@@ -1,9 +1,9 @@
-package io.benett;
+package bank_kata;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OperationsRepository {
+public class OperationsStore {
   private List<Operation> operations = new ArrayList<>();
 
   public void addDeposit(Operation deposit) {

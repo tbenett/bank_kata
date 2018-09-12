@@ -1,4 +1,4 @@
-package io.benett;
+package bank_kata;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

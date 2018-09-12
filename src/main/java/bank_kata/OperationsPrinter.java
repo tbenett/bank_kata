@@ -1,7 +1,6 @@
-package io.benett;
+package bank_kata;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class OperationsPrinter {
   public static final String HEADER = "date;amount;balance";

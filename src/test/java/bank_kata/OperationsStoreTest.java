@@ -1,4 +1,4 @@
-package io.benett;
+package bank_kata;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,13 +8,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-class OperationsRepositoryTest {
+class OperationsStoreTest {
 
-  private OperationsRepository operationRepository;
+  private OperationsStore operationRepository;
 
   @BeforeEach
   void setUp() {
-    operationRepository = new OperationsRepository();
+    operationRepository = new OperationsStore();
   }
 
   @Test

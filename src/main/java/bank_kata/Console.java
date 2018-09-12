@@ -1,4 +1,4 @@
-package io.benett;
+package bank_kata;
 
 public class Console {
   public void printLine(String s) {

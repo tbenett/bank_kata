@@ -1,4 +1,4 @@
-package io.benett;
+package bank_kata;
 
 import java.util.Objects;
 

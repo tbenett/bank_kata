@@ -1,4 +1,4 @@
-package io.benett;
+package bank_kata;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
